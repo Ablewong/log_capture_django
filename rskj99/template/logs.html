@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+	<title>logs</title>
+{% endblock %}
+
+{% block context %}
+	 <div class='log_list'>
+		 {% for key in files %}
+		    <li><a href="/{{ show_path }}/{{ key }}">{{ key }}
+			<span class="appInfo">
+			{# {% for key1,value1 in value.items %} #}
+			    {{ value1 }}
+			{# {% endfor %} #}
+			</span>
+		    </a></li>
+		{% endfor %}
+	</div>
+{% endblock %}
