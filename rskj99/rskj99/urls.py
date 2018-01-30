@@ -18,7 +18,7 @@ from django.conf.urls import url,patterns
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from logs.views	import list_log,download_log
+from logs.views	import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,5 +26,7 @@ urlpatterns = [
 
 urlpatterns = patterns('',
     (r'^logs/$',list_log),
+    (r'^tealogs/$',tea_log),
     (r'loglist/(?P<logs_name>[A-Za-z0-9_-]+.(log|jpg|png|zip)(.\d{4}-\d{2}-\d{2})?)/$',download_log),
+    (r'tealog/(?P<tealogs_name>[A-Za-z0-9_-]+.(log|jpg|png|zip)(.\d{4}-\d{2}-\d{2})?)/$',down_tealog),
 )

@@ -7,6 +7,85 @@
 	{% block tilte %}
 	{% endblock %}
     </title>
+<style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        {#        html{height:100%}#}
+        {#        body{#}
+        {#            background-image: linear-gradient(#808080, #C0C0C0);#}
+        {#            background-repeat: no-repeat;#}
+        {#        }#}
+
+        .box {
+            position: relative;
+            float: left;
+            width: 100%;
+            word-wrap: break-word; /*允许浏览器在单词内进行断句*/
+            word-break: normal; /*正常断句，标明怎么样进行单词内的断句*/
+            overflow: hidden; /*hidden超出隐藏，auto滚动条*/
+
+        }
+
+        li {
+        {#            list-style: none;#} margin-left: 10px;
+            padding-top: 5px;
+            color: red;
+
+        {#            list-style-image:radial-gradient(red, green);#}{#            linear-gradient(red, green);#}
+
+        }
+
+        a {
+            color: #006400;
+            text-shadow: 1px 1px 1px green;
+            /*text-shadow 文本阴影*/
+        {#            margin-left: -15px;#}
+        }
+
+        a:link, a:visited {
+            /*background-color: ; */
+            text-decoration: none; /*超链接无下划线*/
+        }
+
+        a:hover {
+            /*hover 悬浮*/
+            color: #0000FF;
+            /*color: #fff;			*/
+            text-decoration: underline; /*鼠标放上去有下划线*/
+        }
+
+        .upload {
+            margin-top: 20px;
+            padding-top: 10px;
+            padding-left: 15px;
+            margin-bottom: 20px;
+
+        }
+
+        .upErrMes {
+            font-size: 13px;
+            color: red;
+            margin-left: -2px;
+        }
+
+
+        .appInfo {
+            color: #808080;
+
+        }
+
+        .msg_updata {
+            width: 250px;
+        }
+
+        .app {
+            margin-bottom: 10px;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -22,4 +101,78 @@
 </div>
 
 </body>
+{%comment%}
+ <script type="text/javascript">
+    var at_names_select_button = document.getElementsByClassName("at_names_select_button");
+    {#    console.log(at_names_select_button[0].checked)#}
+    function at_names_select_button_onclick() {
+        var at_names_select_text_name = document.getElementsByClassName("at_names_select_text");
+        {#        console.log(at_names_select_text_name[0])#}
+        for (var i = 0; i < at_names_select_text_name.length; i++) {
+            if (at_names_select_button[i].checked == false) {
+                at_names_select_text_name[i].style.color = "#8c8c8c";
+            } else {
+                at_names_select_text_name[i].style.color = "#0d6aad";
+            }
+        }
+    }
+
+    var url_nickname_select_button = document.getElementsByClassName("url_nickname_select_button");
+    function url_nickname_select_button_onclick() {
+        var url_nickname_select_text_name = document.getElementsByClassName("url_nickname_select_text");
+        for (var i = 0; i < url_nickname_select_text_name.length; i++) {
+            if (url_nickname_select_button[i].checked == false) {
+                url_nickname_select_text_name[i].style.color = "#8c8c8c";
+            } else {
+                url_nickname_select_text_name[i].style.color = "#0d6aad";
+            }
+        }
+    }
+
+
+    function dd_button() {
+        var dd_send_status = document.getElementById("dd_send");
+        var dd_send_select_index = dd_send_status.selectedIndex;
+        var select_value = dd_send_status.options[dd_send_select_index].value
+        {#        console.log(dd_send_select_index);#}
+        {#        console.log(dd_send_status.options[dd_send_select_index]);#}
+        if (select_value == "True") {
+            document.getElementById("dd_content").style.display = "inline";
+        } else if (select_value == "False") {
+            document.getElementById("dd_content").style.display = "none";
+        }
+    }
+
+    var lis = document.getElementsByTagName("li");
+    for (var i = 0; i < lis.length; i++) {
+        if (i % 2 == 0) {
+            lis[i].style.backgroundColor = "#F5F5F5";
+        }
+    }
+
+    function resetFile() {
+        var file = document.getElementById('choice_file');
+        file.outerHTML = file.outerHTML;
+    }
+    {#    //添加鼠标移入和移出事件#}
+    {#    var color =null;#}
+    {#    lis[i].onmouseover=function () {#}
+    {#        //获取原来的颜色#}
+    {#        color = this.style.backgroundColor;#}
+    {#        this.style.backgroundColor = "#A9A9A9";#}
+    {#    }#}
+    {##}
+    {#    lis[i].onmouseout=function () {#}
+    {#        this.style.backgroundColor=color;#}
+    {#    }#}
+    function submit_sure() {
+        var gnl = confirm("确定提交?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script> 
+{%endcomment%}
 </html>

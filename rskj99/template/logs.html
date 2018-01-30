@@ -5,14 +5,29 @@
 
 {% block context %}
 	 <div class='log_list'>
-		 {% for key in files %}
-		    <li><a href="/{{ show_path }}/{{ key }}">{{ key }}
+		 {% for key,value in app_dict %}
+		 {% if forloop.counter0|divisibleby:"2"  %}
+		    <li style="background-color:SkyBlue">
+			{# <input type="checkbox" /> #}
+		    	<a href="/{{ show_path }}/{{ key }}">{{ key }}
 			<span class="appInfo">
-			{# {% for key1,value1 in value.items %} #}
+			{% for key1,value1 in value.items %}
 			    {{ value1 }}
-			{# {% endfor %} #}
+			{% endfor %}
 			</span>
-		    </a></li>
+		    	</a>
+		    </li>
+		{% else %}
+		     <li style="">
+			<a href="/{{ show_path }}/{{ key }}">{{ key }}
+                        <span class="appInfo">
+                        {% for key1,value1 in value.items %}
+                            {{ value1 }}
+                        {% endfor %}
+                        </span>
+                        </a>
+                    </li>
+		{% endif %}
 		{% endfor %}
 	</div>
 {% endblock %}
